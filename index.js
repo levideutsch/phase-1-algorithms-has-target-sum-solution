@@ -1,5 +1,33 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  // Create an object to keep track of number we have already seen
+  const seenNumbers = {}
+
+  for (const number of array) {
+    const compliment = target - number
+
+    // Check if any key in our object is the compliment
+    if (compliment in seenNumbers) return true 
+
+    // Otherwise add add that number to our object
+    seenNumbers[number] = true
+  }
+  // If we reach to the end of the array and found no mathcing numbers then..
+  return false 
+
+
+  // // Itirate through each number of the array 
+  // for (let i = 0; i < array.length; i++) { // n steps
+  // // For the current number, identify a compliment that adds to the targeted number 
+  //   const compliment = target - array[i]
+  // // Itirate through the rest of the array 
+  // for (let j = i + 1; j < array.length; j++) { // n * n steps 
+  // // Check if any number is our compliment. if so return true
+  // if (array[j] === compliment) return true 
+
+  //   }
+  // }
+  // // If not, then return false 
+  // return false 
 }
 
 /* 
